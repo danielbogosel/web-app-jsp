@@ -13,8 +13,8 @@ public class UserDao {
 
     private static final String INSERT_USER = "INSERT INTO user" + "(username,password,email,user_role,company_id)VALUES" + "(?,?,?,?,?)";
     private static final String SELECT_ALL_USERS = "select * from user;";
-    private static final String SELECT_USER_BY_ID = "select * from user where id=?";
-    private static final String DELETE_USER = "delete from user where id=?;";
+    private static final String SELECT_USER_BY_ID = "select * from user where user_id=?";
+    private static final String DELETE_USER = "delete from user where user_id=?;";
     private static final String UPDATE_USER = "update user set username=?,password=?,email=?,user_role=?,company_id=?;";
 
     protected Connection getConnection() {
@@ -37,7 +37,7 @@ public class UserDao {
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.setString(3, user.getEmail());
             preparedStatement.setString(4, user.getUserRole());
-            preparedStatement.setString(5, String.valueOf(user.getCompanyId()));
+            preparedStatement.setInt(5, user.getCompanyId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -48,7 +48,7 @@ public class UserDao {
     public List<User> selectAllUsers() {
         List<User> users = new ArrayList<>();
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS)) {
             System.out.println(preparedStatement);
             ResultSet result = preparedStatement.executeQuery();
             while (result.next()) {
@@ -66,7 +66,7 @@ public class UserDao {
         return users;
     }
 
-    public boolean updateMethod(User user) {
+    public boolean updateUser(User user) {
         boolean rowUpdated = false;
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)) {
@@ -106,16 +106,17 @@ public class UserDao {
         return user;
     }
 
-    public void deleteUser(int id) {
+    public boolean deleteUser(int id) {
+        boolean deletedRow = false;
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER)) {
             preparedStatement.setInt(1, id);
+            deletedRow = preparedStatement.executeUpdate() > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
+        return deletedRow;
     }
 
 }

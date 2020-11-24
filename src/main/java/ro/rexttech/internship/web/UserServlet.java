@@ -36,10 +36,14 @@ public class UserServlet extends HttpServlet {
             case "/insert":
                 insertNewUser(req, resp);
                 break;
+            case "/edit":
+                showEditForm(req, resp);
+                break;
             case "/delete":
+                deleteUser(req, resp);
                 break;
             case "/update":
-                deleteUser(req, resp);
+                updateUser(req, resp);
                 break;
             default:
                 getListOfUsers(req, resp);
@@ -58,9 +62,10 @@ public class UserServlet extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String userRole = request.getParameter("userRole");
-        int companyId = Integer.parseInt(request.getParameter("company_id"));
+        int companyId = Integer.parseInt(request.getParameter("companyId"));
         User user = new User(username, password, email, userRole, companyId);
         userDao.createUser(user);
+        response.sendRedirect("list");
 
     }
 
@@ -69,6 +74,27 @@ public class UserServlet extends HttpServlet {
         request.setAttribute("users", users);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
         dispatcher.forward(request, response);
+    }
+
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        User existingUser = userDao.getUserById(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user-form.jsp");
+        request.setAttribute("user", existingUser);
+        dispatcher.forward(request, response);
+    }
+
+    private void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+        String role = request.getParameter("userRole");
+        int companyId = Integer.parseInt(request.getParameter("companyId"));
+        User updatedUser = new User(id, username, password, email, role, companyId);
+        userDao.updateUser(updatedUser);
+        response.sendRedirect("list");
+
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
