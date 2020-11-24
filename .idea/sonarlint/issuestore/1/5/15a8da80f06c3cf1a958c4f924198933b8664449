@@ -1,0 +1,16 @@
+
+^
+java:S11178"<Rename "username" which hides the field declared at line 11.(İù—æüÿÿÿÿ8¾ìÊ­Ş.
+a
+java:S2147"DCombine this catch with the one at line 25, which has the same body.(ıàÑÎ8¾ìÊ­Ş.
+Z	java:S1064"9Replace this use of System.out or System.err by a logger.(µâ£äşÿÿÿÿ8¾ìÊ­Ş.
+O
+java:S4925"-Remove this "Class.forName()", it is useless.(¹µÖÁüÿÿÿÿ8¾ìÊ­Ş.
+e
+java:S1192"IDefine a constant instead of duplicating this literal "password" 3 times.(£ÉZ8¿Š”®Ş.
+Y
+java:S1117_"<Rename "password" which hides the field declared at line 12.(š„÷š8¿Š”®Ş.
+Y
+java:S11179"<Rename "password" which hides the field declared at line 12.(š„÷š8¾ìÊ­Ş.
+^
+java:S1117^"<Rename "username" which hides the field declared at line 11.(İù—æüÿÿÿÿ8¿Š”®Ş.
