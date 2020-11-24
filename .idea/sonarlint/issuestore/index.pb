@@ -11,3 +11,5 @@ e
 5src/main/java/ro/rexttech/internship/dao/UserDao.java,1\5\15a8da80f06c3cf1a958c4f924198933b8664449
 M
 src/main/webapp/user-form.jsp,8\4\843331eeecc642840ec65ca61180f7784f0c8b3a
+O
+src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392

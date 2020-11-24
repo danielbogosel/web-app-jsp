@@ -56,7 +56,7 @@ public class UserDao {
                 String username = result.getString("username");
                 String password = result.getString("password");
                 String email = result.getString("email");
-                String userRole = result.getString("userRole");
+                String userRole = result.getString("user_role");
                 int companyId = result.getInt("company_id");
                 users.add(new User(id, username, password, email, userRole, companyId));
             }
@@ -94,7 +94,7 @@ public class UserDao {
                 String username = result.getString("username");
                 String password = result.getString("password");
                 String email = result.getString("email");
-                String userRole = result.getString("userRole");
+                String userRole = result.getString("user_role");
                 int companyId = result.getInt("company_id");
                 user = new User(id, username, password, email, userRole, companyId);
 

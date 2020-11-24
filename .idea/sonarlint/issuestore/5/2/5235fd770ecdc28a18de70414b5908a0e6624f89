@@ -1,23 +1,17 @@
 
-‰
-java:S1989""gHandle the following exceptions that could be thrown by "showNewFormat": ServletException, IOException.(Í«­–ûÿÿÿÿ8À±Ø®Ş.
-Š
-java:S1989-"hHandle the following exceptions that could be thrown by "getListOfUsers": ServletException, IOException.(åÏ¾õûÿÿÿÿ8Ô»á°Ş.
-z
-java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(­¶úÿÿÿÿ8İ´¬Ş.
-|
-java:S1989"_Handle the following exceptions that could be thrown by "doGet": ServletException, IOException.(ï¶ßû8¯Ò¶¬Ş.
 „
 java:S1989%"gHandle the following exceptions that could be thrown by "insertNewUser": ServletException, IOException.(ÃèÌè8 Úú®Ş.
-™
-java:S1130J"wRemove the declaration of thrown exception 'javax.servlet.ServletException', as it cannot be thrown from method's body.(‹Ùíéÿÿÿÿÿ8¢±ÿ¯Ş.
+Š
+java:S1989-"hHandle the following exceptions that could be thrown by "getListOfUsers": ServletException, IOException.(åÏ¾õûÿÿÿÿ8Ô»á°Ş.
 †
 java:S1989*"dHandle the following exceptions that could be thrown by "deleteUser": ServletException, IOException.(¹”ëğøÿÿÿÿ8›¢Œ¯Ş.
+z
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(­¶úÿÿÿÿ8İ´¬Ş.
 ‰
-java:S11308"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(½Î‹8´¡õ®Ş.
-”
-java:S11308"wRemove the declaration of thrown exception 'javax.servlet.ServletException', as it cannot be thrown from method's body.(½Î‹8´¡õ®Ş.
+java:S1989""gHandle the following exceptions that could be thrown by "showNewFormat": ServletException, IOException.(Í«­–ûÿÿÿÿ8À±Ø®Ş.
 L
 java:S11728"/Remove this unused method parameter "response".(½Î‹8âéç®Ş.
 W
 java:S1161":Add the "@Override" annotation above this method signature( Üó8è‘¸Ş.
+|
+java:S1989"_Handle the following exceptions that could be thrown by "doGet": ServletException, IOException.(ï¶ßû8¯Ò¶¬Ş.
