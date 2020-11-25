@@ -1,7 +1,7 @@
-package ro.rexttech.internship.web;
+package ro.nexttech.internship.web;
 
-import ro.rexttech.internship.dao.UserDao;
-import ro.rexttech.internship.model.User;
+import ro.nexttech.internship.model.User;
+import ro.nexttech.internship.dao.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,7 +54,6 @@ public class UserServlet extends HttpServlet {
     private void showNewFormat(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("user-form.jsp");
         dispatcher.forward(request, response);
-
     }
 
     private void insertNewUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -66,7 +65,6 @@ public class UserServlet extends HttpServlet {
         User user = new User(username, password, email, userRole, companyId);
         userDao.createUser(user);
         response.sendRedirect("list");
-
     }
 
     private void getListOfUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -94,7 +92,6 @@ public class UserServlet extends HttpServlet {
         User updatedUser = new User(id, username, password, email, role, companyId);
         userDao.updateUser(updatedUser);
         response.sendRedirect("list");
-
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

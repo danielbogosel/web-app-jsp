@@ -1,4 +1,4 @@
-package ro.rexttech.internship.model;
+package ro.nexttech.internship.model;
 
 public class User {
     private int id;

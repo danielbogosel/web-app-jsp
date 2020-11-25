@@ -1,6 +1,6 @@
-package ro.rexttech.internship.dao;
+package ro.nexttech.internship.dao;
 
-import ro.rexttech.internship.model.User;
+import ro.nexttech.internship.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class UserDao {
     private static final String SELECT_ALL_USERS = "select * from user;";
     private static final String SELECT_USER_BY_ID = "select * from user where user_id=?";
     private static final String DELETE_USER = "delete from user where user_id=?;";
-    private static final String UPDATE_USER = "update user set username=?,password=?,email=?,user_role=?,company_id=?;";
+    private static final String UPDATE_USER = "update user set username=?,password=?,email=?,user_role=?,company_id=? WHERE user_id=?;";
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -75,6 +75,7 @@ public class UserDao {
             preparedStatement.setString(3, user.getEmail());
             preparedStatement.setString(4, user.getUserRole());
             preparedStatement.setString(5, String.valueOf(user.getCompanyId()));
+            preparedStatement.setInt(6, user.getId());
             rowUpdated = preparedStatement.executeUpdate() > 0;
 
         } catch (SQLException e) {
